@@ -1,6 +1,8 @@
 The project includes a website which list all the cafes in an area, and details of the individual cafe.
 
-In the website we can add and delete cafe from the list.
+In the website we can add and delete cafe from the list. 
+
+This is simple website techologies used - Flask, Python3, Bootstarp5, SQLAlchemy
 
 /cafes - list all the cafes
 
