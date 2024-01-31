@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</head>
+<body style="background-color: beige;">
+    <div class="container-fluid my-10" style="background-color: blueviolet;">
+        <span class="h1">TODO List</span>
+    </div>
+    <div class="container-fluid my-10" style="background-color: violet;">
+        <span class="h2">Create your todo list</span>
+    </div>
+    <div class="container">
+        <form action="{{url_for('todo')}}" method="post">
+            <div class="form-group mt-3">
+              <input type="text" class="form-control mt-10" name="new_item" aria-describedby="emailHelp" placeholder="Add new item">
+            </div>
+            <button type="submit" class="btn btn-dark mt-2">Add</button>
+          </form>
+        <div class="mt-4">
+            {% for item in todo_list %}
+                {% if item.done %}
+                  <span style="text-decoration: line-through;">{{item.item}}</span>
+                {% else %}
+                  <span>{{item.item}}</span> 
+                {% endif %}  
+                <a href="{{url_for('delete_item', id = item.id)}}"><button type="button" class="btn btn-danger"  style="float: right;">Delete</button></a> 
+                <a href="{{url_for('update_item', id = item.id)}}"><button type="button" class="btn btn-success"  style="float: right;">Done</button></a>
+                <hr>    
+            {% endfor %}  
+        </div>
+
+      
+    
+    </div>
+
+    
+
+      
+</body>
+</html>
