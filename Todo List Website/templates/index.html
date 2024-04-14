@@ -25,16 +25,26 @@
         <div class="mt-4">
             {% for item in todo_list %}
                 <!-- <input type="checkbox" name="item_done" value=1 action="{{url_for('update_item', id=item.id)}}"> -->
-                {% if item.done %}
-                  <span style="text-decoration: line-through;">{{item.item}}</span>
-                {% else %}
-                  <span>{{item.item}}</span> 
-                {% endif %}  
+                  {% if item.done == False %}
+                  <span>{{item.item}}</span>
                 <a href="{{url_for('delete_item', id = item.id)}}"><button type="button" class="btn btn-danger"  style="float: right;">Delete</button></a> 
                 <a href="{{url_for('update_item', id = item.id)}}"><button type="button" class="btn btn-success"  style="float: right;">Done</button></a>
-                <hr>    
+                <hr>
+                {% endif %}
+                    
             {% endfor %}  
-        </div>      
+        </div>  
+        <div class="mt-4">
+          {% for item in todo_list %}
+              <!-- <input type="checkbox" name="item_done" value=1 action="{{url_for('update_item', id=item.id)}}"> -->
+              {% if item.done %}
+                 <span style="text-decoration: line-through;">{{item.item}}</span> 
+              <a href="{{url_for('delete_item', id = item.id)}}"><button type="button" class="btn btn-danger"  style="float: right;">Delete</button></a> 
+              <a href="{{url_for('update_item', id = item.id)}}"><button type="button" class="btn btn-success"  style="float: right;">Done</button></a>
+              <hr>   
+              {% endif %}  
+          {% endfor %}  
+      </div>    
     </div>     
 </body>
 </html>
