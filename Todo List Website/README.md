@@ -7,15 +7,16 @@ This is simple website technologies used - Flask, Python3, Bootstarp5, SQLAlchem
 /todo - 
 We can add items in the list. 
 
-![image](https://github.com/sbhavana1999/python_portfolio/assets/141701836/c7ffcf0e-e304-4c18-bfa0-73adeb2531ec)
+![image](https://github.com/sbhavana1999/python_portfolio/assets/141701836/1190db20-247a-4708-888f-89d3c069f4d1)
 
 
 Delete an item. 
 
-![image](https://github.com/sbhavana1999/python_portfolio/assets/141701836/1e54af7a-e73a-49d1-a7d1-d438b0fce26d)
+![image](https://github.com/sbhavana1999/python_portfolio/assets/141701836/4c96e331-a4db-4cf1-b785-53083de5c28e)
 
 
 Checkoff the item which are completed.
 
-![image](https://github.com/sbhavana1999/python_portfolio/assets/141701836/a0215ffe-4b86-4dfc-bdad-039b94602b27)
+![image](https://github.com/sbhavana1999/python_portfolio/assets/141701836/906e0477-017f-4d92-a16c-cdbc15149c4a)
+
 
