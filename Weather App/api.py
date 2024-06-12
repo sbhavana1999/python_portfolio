@@ -10,7 +10,9 @@ Temprature_URL = "https://api.open-meteo.com/v1/forecast"
 ?latitude=16.572090&longitude=82.000854&
 current=temperature_2m,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m"
 '''
+api_key = "cd413f3341ed05c029d7c69d875f7668"
 
+URL = "https://api.openweathermap.org/data/2.8/onecall"
 
 def lat_long(city):
     response = requests.get(Lat_Long_URL, params={'q' : city, 'api_key' : API_KEY})
@@ -45,6 +47,25 @@ def tempertaure(city):
 
    
 
+def rain_chance(city):
+    MY_LAT,MY_LONG = lat_long(city)
+    if MY_LAT != "city not present":
+        
+        parameters = {
+            "lat" : MY_LAT,
+            "lon" : MY_LONG,
+            "appid" : api_key,
+            "exclude" : "current,minutely,daily"
+        }
 
+        response = requests.get(url=URL, params=parameters)
+        response.raise_for_status()
+        weather_data = response.json()["hourly"]
 
-print(lat_long('hgdufhg'))  
+        weather_hourly = weather_data[0:9]
+        rain_chance = ['High' if hour['weather'][0]['id'] < 700 else 'Low' for hour in weather_hourly]
+
+        return rain_chance
+    return []
+
+print(rain_chance('Delhi'))

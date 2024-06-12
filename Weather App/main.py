@@ -1,5 +1,5 @@
 from tkinter import *
-from api import tempertaure
+from api import tempertaure, rain_chance
 
 sun = None
 moon = None
@@ -11,10 +11,12 @@ def on_enter():
 
     time, temps = tempertaure(city)
 
+    rain = rain_chance(city)
+
     if len(temps) != 0:
         canvas = Canvas(height=400, width=600, background="#36454F")
-        city_label = canvas.create_text(50,35, text=f"{city.title()}", font=('Courier', 20, "normal"), fill='White')
-        curr_temp = canvas.create_text(50,58, text=f"{temps[0]}°C", font=('Courier', 17, "normal"), fill='White')
+        canvas.create_text(50,35, text=f"{city.title()}", font=('Courier', 20, "normal"), fill='White')
+        canvas.create_text(50,58, text=f"{temps[0]}°C", font=('Courier', 17, "normal"), fill='White')
         canvas.create_line(2, 80, 600, 80 , fill='white', width=2)
         sun = PhotoImage(file='sun1.png')
         moon = PhotoImage(file='moon2.png')
@@ -31,6 +33,11 @@ def on_enter():
                 canvas.create_image(50+dis,200, image=moon)    
 
             canvas.create_text(50+dis, 260 , text=f"{temps[i]}°C", font=('Courier', 15, "normal"), fill='White' )     
+            
+            canvas.create_text(50+dis, 300 , text=f"Rain:", font=('Courier', 15, "normal"), fill='White' )
+
+            canvas.create_text(50+dis, 320 , text=f"{rain[i]}", font=('Courier', 15, "normal"), fill='White' )
+            
             dis += 95
         
         canvas.grid(row=2, column=0, columnspan=3, padx=10, pady=10)
