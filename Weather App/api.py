@@ -68,4 +68,3 @@ def rain_chance(city):
         return rain_chance
     return []
 
-print(rain_chance('Delhi'))
