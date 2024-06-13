@@ -1,16 +1,13 @@
 from datetime import datetime as dt
 import requests
 
-API_KEY = "66609f91e4d55859907411gsv834dd8"
+API_KEY = "API_KEY"
 
 Lat_Long_URL = "https://geocode.maps.co/search"
 
 Temprature_URL = "https://api.open-meteo.com/v1/forecast"
-'''
-?latitude=16.572090&longitude=82.000854&
-current=temperature_2m,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m"
-'''
-api_key = "cd413f3341ed05c029d7c69d875f7668"
+
+api_key = "API_KEY"
 
 URL = "https://api.openweathermap.org/data/2.8/onecall"
 
